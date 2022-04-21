@@ -1,6 +1,11 @@
 import styles from "../styles/Login.module.scss";
+import { useForm } from 'react-hook-form';
 
 export default function LogIn(props) {
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const onSubmit = data => console.log(data);
+  console.log(errors);
+
   return (
     <div className={styles.logInTest}>
       <div className={styles.logInLeftPanel}>
@@ -33,23 +38,27 @@ export default function LogIn(props) {
         <div className={styles.form_container}>
           <h1 className={styles.form_title}>Welcome</h1>
 
-          <div className={styles.form_content}>
-            <input type="text" required="required" />
-            <label>Username</label>
-            <div className={styles.line}></div>
-          </div>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className={styles.form_content}>
+            <input type="text" required="required" {...register("Username", {required: true})} />
+              <label>Username</label>
+              <div className={styles.line}></div>
+            </div>
 
           <div className={styles.form_content}>
             <div className={styles.form_content}>
-              <input type="text" required="required" />
+            <input type="password" required="required" {...register("Password", {required: true, maxLength: 80})} />
               <label>Password</label>
               <div className={styles.line}></div>
             </div>
 
-            <button>Login</button>
+            <input type="submit" className="py-2 px-4  bg-gradient-to-r from-green-400 to-blue-500 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2"/>
 
             <div className={styles.signUp}>Don't have an account?</div>
           </div>
+
+          </form>
+          
         </div>
       </div>
     </div>
