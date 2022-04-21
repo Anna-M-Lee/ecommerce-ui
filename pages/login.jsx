@@ -1,17 +1,11 @@
 import Head from "next/head";
-// import styles from "../styles/pageStyles/login.module.scss";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
-
 import styles from "../styles/Login.module.scss";
-import { useForm } from 'react-hook-form';
 
 export default function Login() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
-  console.log(errors);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
