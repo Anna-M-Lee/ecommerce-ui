@@ -50,29 +50,6 @@ export default function Login() {
     });
   };
 
-  // <form onSubmit={handleLogin}>
-  //   {loginError}
-  //   <label>
-  //     Email:
-  //     <input
-  //       type="text"
-  //       value={email}
-  //       onChange={(e) => setEmail(e.target.value)}
-  //     />
-  //   </label>
-  //   <label>
-  //     Password:
-  //     <input
-  //       type="password"
-  //       value={password}
-  //       onChange={(e) => setPassword(e.target.value)}
-  //     />
-  //   </label>
-  //   <button type="submit">Submit login</button>
-
-  //   <Link href="/register">Register</Link>
-  // </form>
-
   return (
     <div className={styles.logInTest}>
       <div className={styles.logInLeftPanel}>
