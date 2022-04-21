@@ -1,11 +1,11 @@
 import "bootstrap/dist/css/bootstrap.css";
 import { useState, useEffect } from "react";
 import FloatingInput from "../components/floatingInput";
-import NavBar from "../components/navBar";
+import Header from "../components/Header";
 import toast, { Toaster } from "react-hot-toast";
 
 function Profile() {
-  const [selectedTab, setSelectedTab] = useState();
+  // const [selectedTab, setSelectedTab] = useState();
 
   const handleAccountUpdate = () => {
     console.log("account update button pressed");
@@ -22,11 +22,11 @@ function Profile() {
     toast.success("Successfully Updated");
   };
 
-  const handleTabChange = (newValue) => {
-    setSelectedTab(newValue);
-  };
+  // const handleTabChange = (newValue) => {
+  //   setSelectedTab(newValue);
+  // };
 
-  console.log(selectedTab);
+  // console.log(selectedTab);
 
   const AccountDetails = () => {
     return (
@@ -132,40 +132,34 @@ function Profile() {
     );
   };
 
+  const card = {
+    backgroundColor: "white",
+    padding: "3rem 3rem 5rem 3rem",
+    boxShadow: "0px 2px 5px #B98B73",
+    borderRadius: ".25rem",
+    marginBottom: "1rem",
+  };
+
   return (
-    <div>
+    <div
+      className="min-h-screen w-screen"
+      style={{ backgroundColor: "#dfbea9" }}
+    >
       <Toaster />
-      <NavBar />
-      <div className="container-sm my-4">
-        <h1>My Account</h1>
-        <hr />
-        <div className="row">
-          {/* <div className="col-3">
-            <nav className="navbar nav-pills navbar-light bg-light flex-column align-items-stretch p-3">
-              <button
-                className="btn btn-white my-2"
-                onClick={() => handleTabChange(AccountDetails)}
-              >
-                Account
-              </button>
-              <a
-                className="btn btn-white my-2"
-                onClick={() => handleTabChange(AddressDetails)}
-              >
-                Address
-              </a>
-              <a
-                className="btn btn-white my-2"
-                onClick={() => handleTabChange(BillingDetails)}
-              >
-                Billing
-              </a>
-            </nav>
-          </div> */}
-          <div className="col">
-            <AccountDetails />
-            <AddressDetails />
-            <BillingDetails />
+      <div id="page-wrap">
+        <div className="" style={{ backgroundColor: "#B98B73" }}>
+          <Header />
+          {/* <Banner /> */}
+        </div>
+        <div className="container-sm my-4" style={card}>
+          <h1>My Account</h1>
+          <hr />
+          <div className="row">
+            <div className="col">
+              <AccountDetails />
+              <AddressDetails />
+              <BillingDetails />
+            </div>
           </div>
         </div>
       </div>
