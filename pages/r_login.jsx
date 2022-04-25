@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
 import { BeakerIcon } from "@heroicons/react/solid";
-import styles from "../styles/Login1.module.scss";
+import styles from "../styles/Login.module.scss";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -46,14 +46,16 @@ export default function Login() {
   };
 
   return (
-    <div className="h-screen w-full flex justify-center items-center" style={{backgroundColor: "#DDBEA9"}}>
+    <div className="bg-slate-500 h-screen w-full flex justify-center items-center">
       <div className={styles.logInTest}>
         <div className={styles.logInLeftPanel}>
           <div className={styles.img}></div>
           <div className={styles.logInLeftTitleCard}>
-            <h1>Worlds at your fingertips</h1>
+            <h1>The Interactive look into new origins</h1>
             <p>
-              Bogus Books offers a wide variety of books at your perusal. Finding and buying a book you like has never been easier.
+              The rousing soundtrack imbues the film with a thrilling power, and
+              builds to a tremendous climax, offering an all-round exhilarating
+              experience for the viewer.
             </p>
           </div>
         </div>
@@ -76,6 +78,7 @@ export default function Login() {
             <h1 className={styles.form_title}>Welcome</h1>
 
             <form onSubmit={handleLogin}>
+              {loginError}
               <div className={styles.form_content}>
                 <input
                   type="text"
@@ -83,7 +86,7 @@ export default function Login() {
                   required="required"
                   onChange={(e) => setEmail(e.target.value)}
                 />
-                <label>Username</label>
+                <label>Email</label>
                 <div className={styles.line}></div>
               </div>
 
